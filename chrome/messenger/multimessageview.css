@@ -1,0 +1,100 @@
+@import url("chrome://messenger/content/multimessageview.css");
+
+/* qute-specific overrides for multimessageview.css*/
+
+/* mostly it's about CSS colors not being reliable */
+
+body {
+  background-color: white;
+}
+
+.heading.info {
+  color: ButtonText;
+}
+
+
+.info,
+.count, .date,
+.message > .header > .snippet,
+.message > .header > .senders {
+  color: GrayText;
+}
+
+/* gp-5b1
+
+.button {
+  font: message-box;
+}
+
+.button > .button-box {
+  border: 0;
+  padding: 0;
+  / Needed to make the buttons w/o icons the same height as those with icons /
+  min-height: 16px;
+}
+*/
+.star {
+  width: 12px;
+  height: 12px;
+  margin-right: 0.5em;
+}
+
+.starred .star {
+  background-image: url("chrome://messenger/skin/icons/flag-col.png");
+}
+
+
+/* =====================================================================
+ * Epyrus 2.2.1 multi-message summary dark surface (0.1a10)
+ * ===================================================================== */
+body {
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/bg-main.png") repeat left top !important;
+}
+
+#heading_wrapper,
+#content,
+#message_list,
+#footer {
+  color: #d6d6da !important;
+  background-color: transparent !important;
+}
+
+#message_list > li {
+  color: #d6d6da !important;
+  background: rgba(0,0,0,.38) !important;
+  border-bottom-color: #4d4d52 !important;
+}
+
+#message_list > li.thread {
+  border-color: #55555a !important;
+}
+
+.heading.info,
+.info,
+.count,
+.date,
+.message > .header > .snippet,
+.message > .header > .senders,
+.snippet {
+  color: #aaaab0 !important;
+}
+
+#summary_title,
+.primary_header,
+.item_header,
+.item_summary {
+  color: #e4e4e7 !important;
+}
+
+#header-view-toolbox,
+#header-view-toolbar {
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/toolbar/toolbox-bg.png") repeat-x left top !important;
+}
+
+.toolbarbutton-1.msgHeaderView-button {
+  color: #e6e6e8 !important;
+  background-color: #0b0b0c !important;
+  border-color: #5c5c61 !important;
+}

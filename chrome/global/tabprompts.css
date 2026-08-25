@@ -1,0 +1,23 @@
+/* Tab Modal Prompt boxes */
+tabmodalprompt {
+  background-image: url(chrome://global/skin/icons/tabprompts-bgtexture.png);
+  background-color: hsla(0,0%,10%,.5);
+  font-family: sans-serif; /* use content font not system UI font */
+}
+
+.mainContainer {
+  color: #e6e6e8;
+  background: #111111 url("chrome://global/skin/bg-gen.png") repeat left top;
+  -moz-border-radius: 2px;
+  border: 1px solid hsla(0,0%,0%,.5);
+}
+
+.topContainer {
+  padding: 20px;
+}
+
+.buttonContainer {
+  padding: 12px 20px 15px;
+  background-color: rgba(255,255,255,.04);
+  border-top: 1px solid hsla(0,0%,0%,.05);
+}

@@ -1,0 +1,383 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is tabmail
+ * The Initial Developer of the Original Code is
+ *   Scott MacGregor <mscott@mozilla.org>.
+ * Portions created by the Initial Developer are Copyright (C) 2007
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+/**
+ * Tabmail Tabs
+ */
+
+.tabmail-tabs {
+  padding-top: 0px;
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+  -moz-padding-start: 0px;
+}
+
+.tabmail-tabs[overflow="true"] {
+  -moz-padding-start: 0px;
+}
+
+.tabmail-tabs > .tabmail-tab:first-child > .tab-close-button {
+  visibility: collapse;
+}
+
+/**
+ * Tab
+ */
+
+.tabmail-tab[busy],
+.tabmail-tab[thinking] {
+  list-style-image: url("chrome://global/skin/icons/loading_16.png") !important;
+  -moz-image-region: auto !important;
+}
+
+.tabmail-tab[type="glodaSearch"] {
+  list-style-image: url("chrome://global/skin/icons/Search-glass.png");
+}
+
+.tab-icon-image {
+  margin-top: -1px;
+  -moz-margin-end: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.tabmail-tab {
+  list-style-image: url("chrome://global/skin/icons/folder-item.png");
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+  margin-top: 2px;
+  margin-bottom: -3px;
+}
+.tabmail-tab[selected="true"] {
+  border: 1px solid #bbbbbb;
+  -moz-border-radius: 3px;
+  margin-top: 0px;
+}
+
+.tabs-left,
+.tabs-right {
+  width: 3px;
+  border-bottom-width: 0px;
+}
+
+/* tabmail-tab focus ring */
+.tabmail-tab >  .tab-image-middle > .tab-text {
+  border: 1px dotted transparent;
+}
+
+.tabmail-tab:focus > .tab-image-middle > .tab-text {
+  border: 1px dotted #bbbbbb;
+}
+
+/**
+ * Tab Drag and Drop
+ */
+
+.tab-drop-indicator-bar {
+    visibility: hidden;
+    height: 9px;
+    margin-top: -9px;
+    position: relative;
+}
+
+.tab-drop-indicator {
+    height: 9px;
+   width: 9px;
+    margin-bottom: -5px;
+    position: relative;
+    background: url('chrome://messenger/skin/icons/tabDragIndicator.png') 50% 50% no-repeat;
+}
+
+.tab-drop-indicator-bar[dragging="true"] {
+    visibility: visible;
+}
+
+/**
+ * In-tab close button
+ */
+.tab-close-button > .toolbarbutton-icon {
+  -moz-margin-end: 0px !important;
+  margin-top: 1px;
+}
+
+.tab-close-button {
+  -moz-appearance: none;
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+  border: none !important;
+  padding: 0px;
+  cursor: default;
+  list-style-image: url("chrome://global/skin/icons/close.png");
+}
+.tab-close-button:hover {
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+.tab-close-button:hover:active {
+  -moz-image-region: rect(0px, 48px, 16px, 32px);
+}
+
+.tab-close-button:focus {
+  outline: none !important;
+}
+
+/**
+ * Tab Scrollbox Arrow Buttons
+ */
+
+.tabmail-tabs[overflow="true"] .tabs-left {
+  display: none;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up {
+  -moz-appearance: none !important;
+  border: none !important;
+  margin-top: 2px;
+  margin-bottom: 4px !important;
+  padding: 0px;
+  width: 18px;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  list-style-image: url("chrome://messenger/skin/icons/tab-arrow-start.png");
+  -moz-image-region: rect(0, 11px, 14px, 0);
+  background-repeat: no-repeat;
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-enabled.png");
+  background-color: -moz-dialog;
+  -moz-border-radius-topright: 4px;
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > .scrollbutton-up {
+  list-style-image: url("chrome://messenger/skin/icons/tab-arrow-end.png");
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-enabled.png");
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 0px;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up[disabled="true"] {
+  -moz-image-region: rect(0, 33px, 14px, 22px);
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-disabled.png");
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > .scrollbutton-up[disabled="true"] {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-disabled.png");
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up:not([disabled="true"]):hover {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-hover.png");
+  -moz-image-region: rect(0, 22px, 14px, 11px);
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > .scrollbutton-up:not([disabled="true"]):hover {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-hover.png");
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up:not([disabled="true"]):hover:active {
+  -moz-image-region: rect(0, 44px, 14px, 33px);
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-up > .toolbarbutton-icon {
+  margin: 6px 0px 0px;
+}
+
+.tabmail-arrowscrollbox > .scrollbutton-down-stack {
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down-box {
+  -moz-appearance: none !important;
+  border: none !important;
+  width: 18px;
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-enabled.png");
+  background-repeat: no-repeat;
+  background-color: -moz-dialog;
+  -moz-border-radius-topleft: 4px;
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > stack > .scrollbutton-down-box {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-enabled.png");
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 4px;
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down-box[disabled="true"] {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-disabled.png");
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > stack > .scrollbutton-down-box[disabled="true"] {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-disabled.png");
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down-box-animate {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-animate.png");
+  background-repeat: no-repeat;
+  opacity: 0.0;
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > stack > .scrollbutton-down-box-animate {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-animate.png");
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down {
+  -moz-appearance: none !important;
+  border: none !important;
+  width: 18px;
+  list-style-image: url("chrome://messenger/skin/icons/tab-arrow-end.png");
+  -moz-image-region: rect(0, 11px, 14px, 0);
+  margin: 0px;
+  padding: 0px;
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > stack > .scrollbutton-down {
+  list-style-image: url("chrome://messenger/skin/icons/tab-arrow-start.png");
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down[disabled="true"] {
+  -moz-image-region: rect(0, 33px, 14px, 22px);
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down:not([disabled="true"]):hover {
+  -moz-image-region: rect(0, 22px, 14px, 11px);
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-end-bkgnd-hover.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.tabmail-arrowscrollbox:-moz-locale-dir(rtl) > stack > .scrollbutton-down:not([disabled="true"]):hover {
+  background-image: url("chrome://messenger/skin/icons/tab-arrow-start-bkgnd-hover.png");
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down:not([disabled="true"]):hover:active {
+  -moz-image-region: rect(0, 44px, 14px, 33px);
+}
+
+.tabmail-arrowscrollbox > stack > .scrollbutton-down > .toolbarbutton-icon {
+  margin-top: 6px;
+  margin-bottom: 0px;
+  -moz-margin-start: 1px;
+  -moz-margin-end: 0px;
+}
+
+/**
+ * All Tabs Button
+ */
+
+.tabs-alltabs-box {
+  margin-bottom: 4px;
+  width: 18px !important;   
+}
+.tabs-alltabs-button {
+  background-color: rgba(0,0,0,.5);
+  border: 1px solid #bbbbbb;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  margin-top: 2px;
+  -moz-padding-end: 4px;
+}
+
+.tabs-alltabs-button:hover {
+  background-color: rgba(136,136,136,.5);
+}
+
+.tabs-alltabs-button > .toolbarbutton-text {
+  display: none;
+}
+
+.tabs-alltabs-button > .toolbarbutton-icon {
+  -moz-margin-end: 2px;
+}
+
+.tabs-alltabs-button > .toolbarbutton-menu-dropmarker {
+  margin-top: 3px !important;
+}
+
+/**
+ * All Tabs Menupopup
+ */
+
+.alltabs-item {
+  list-style-image: url("chrome://global/skin/icons/folder-item.png");
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+.alltabs-item[selected="true"] {
+  font-weight: bold;
+}
+
+.alltabs-item[busy] {
+  list-style-image: url("chrome://global/skin/icons/loading_16.png") !important;
+}
+
+/* ===== Epyrus 2.2.1 transplant: tabmail ============================== */
+#navigation-toolbox,
+#tabs-toolbar {
+  -moz-appearance: none;
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/toolbar/toolbox-bg.png") repeat-x left top;
+  border-color: #4d4d4f;
+}
+
+#tabs-toolbar:not(:-moz-lwtheme) {
+  background-image: url("chrome://global/skin/toolbar/toolbox-bg.png");
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+.tabmail-tab {
+  -moz-appearance: none;
+  appearance: none;
+  color: #bdbdc2;
+  background: rgba(0, 0, 0, .45);
+  border: 1px solid #55555a;
+  border-bottom-color: #77777c;
+}
+
+.tabmail-tab:hover:not([selected]) {
+  color: #fff;
+  background-color: rgba(80, 80, 84, .52);
+}
+
+.tabmail-tab[selected] {
+  color: #fff;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #8a8a8f;
+  border-bottom-color: #000;
+}
+
+.tabmail-tab:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text,
+.tabmail-tab[selected]:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text {
+  color: inherit;
+}
+
+.tabmail-tab[selected]:focus > .tab-stack > .tab-content > .tab-text {
+  border-color: #dfd2b7;
+}

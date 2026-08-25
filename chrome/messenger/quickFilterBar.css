@@ -1,0 +1,205 @@
+@import url("chrome://messenger/content/quickFilterBar.css");
+
+/* :::: Filter Tab Bar Button :::: */
+
+#qfb-show-filter-bar {
+  -moz-appearance: none;
+  list-style-image: url("chrome://messenger/skin/icons/filter.png");
+  background-color: rgba(0,0,0,.5);
+  border: 1px solid #bbbbbb;
+  border-bottom: 0px;
+  -moz-border-radius: 4px 4px 0pt 0pt;
+  margin: 2px 2px 0px 0;
+  padding: 0 !important;
+  -moz-padding-start: 4px !important;
+  -moz-padding-end: 4px !important;
+}
+
+#qfb-show-filter-bar:hover {
+  background-color: rgba(136,136,136,.5);  
+}
+#qfb-show-filter-bar[checked="true"] {
+  background: transparent url("chrome://global/skin/tabs/tab-bg.png") repeat-x left top;
+}
+
+
+#qfb-show-filter-bar > .toolbarbutton-icon {
+  padding: 0 3px;
+}
+
+#qfb-show-filter-bar > .toolbarbutton-text {
+  display: none;
+}
+
+#qfb-text-search-upsell {
+  background-color: #000000 !important;
+}
+
+/* :::: Filter Bar :::: */
+
+#quick-filter-bar-main-bar {
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+}
+
+#quick-filter-bar-main-bar:-moz-system-metric(windows-default-theme) {
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+}
+
+#quick-filter-bar-expando {
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+}
+
+#quick-filter-bar-tab-bar,
+#quick-filter-bar-filter-text-bar {
+  border-top: 1px solid #555555;
+  border-bottom: 1px solid #bbbbbb;
+}
+
+#quick-filter-bar-tab-bar:-moz-system-metric(windows-default-theme),
+#quick-filter-bar-filter-text-bar:-moz-system-metric(windows-default-theme) {
+  border-top: 1px solid #555555;
+  border-bottom: 2px solid;
+  -moz-border-bottom-colors: #bbbbbb #555555;
+}
+
+#quick-filter-bar[filterActive="searching"] {
+  
+}
+#threadTree[filterActive="searching"] {
+  background-color: #888888;
+}
+
+#quick-filter-bar[filterActive="matches"] {
+  
+}
+#threadTree[filterActive="matches"] {
+  background-color: #000000;
+}
+
+#quick-filter-bar[filterActive="nomatches"] {
+  
+}
+#threadTree[filterActive="nomatches"] {
+  background: -moz-repeating-linear-gradient(top left -45deg, #fff0f4, #fff0f4 5px, white 5px, white 10px);
+}
+
+/* :::: Filter Buttons :::: */
+
+#quick-filter-bar-main-bar toolbarbutton {
+  -moz-margin-start: 1px;
+  -moz-margin-end: 1px;
+}
+
+/* keep that hideous outline focus ring from showing on the checked buttons */
+#quick-filter-bar-main-bar toolbarbutton:focus {
+  outline: none;
+}
+
+#qfb-filter-label:-moz-system-metric(windows-default-theme) {
+  color: #c6c6ca;
+}
+
+#qfb-sticky {
+  list-style-image: url("chrome://messenger/skin/icons/xp-pin-grey.png");
+}
+
+#qfb-sticky[checked] {
+  list-style-image: url("chrome://messenger/skin/icons/xp-pin-red.png");
+}
+
+#qfb-unread {
+  list-style-image: url("chrome://messenger/skin/icons/readmail.png");
+}
+
+#qfb-unread[checked] {
+  list-style-image: url("chrome://messenger/skin/icons/unreadmail.png");
+}
+
+#qfb-starred {
+  list-style-image: url("chrome://messenger/skin/icons/flag-empty.png");
+}
+
+#qfb-starred[checked] {
+  list-style-image: url("chrome://messenger/skin/icons/flag-col.png");
+}
+
+.qfb-starred-nostar {
+  list-style-image: url("chrome://messenger/skin/starContact.png");
+  -moz-image-region:rect(0px 32px 16px 16px);
+}
+
+#qfb-inaddrbook {
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/abcard.png");
+}
+
+#qfb-tags {
+  list-style-image: url("chrome://messenger/skin/icons/mail-toolbar-small.png");
+  -moz-image-region: rect(0px 256px 16px 240px);
+}
+
+#qfb-tags[disabled] {
+  -moz-image-region: rect(48px, 384px, 72px, 360px) !important;
+}
+
+#qfb-attachment {
+  list-style-image: url("chrome://messenger/skin/icons/attachment-col.png");
+}
+
+#quick-filter-bar[filterActive="matches"] #qfb-results-label {
+  color: #c6c6ca;
+}
+
+#quick-filter-bar[filterActive="nomatches"] #qfb-results-label {
+  color: #777777;
+}
+
+#quick-filter-bar-expando toolbarbutton,
+#quick-filter-bar-expando toolbarbutton[checked] {
+  -moz-padding-end: 6px !important;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  -moz-margin-start: 1px;
+  -moz-margin-end: 1px;
+}
+
+/* ===== Epyrus 2.2.1 transplant: Quick Filter Bar ===================== */
+#quick-filter-bar,
+#quick-filter-bar-main-bar,
+#quick-filter-bar-expando,
+#quick-filter-bar-filter-text-bar {
+  -moz-appearance: none;
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #4d4d4f;
+}
+
+#quick-filter-bar {
+  border-bottom: 1px solid #4d4d4f;
+}
+
+#qfb-qs-textbox {
+  color: #e6e6e8;
+  background-color: #090909;
+  border-color: #606066;
+}
+
+#qfb-results-label {
+  color: #aaaab0;
+}
+
+#quick-filter-bar[filterActive="matches"] #qfb-results-label {
+  color: #91c95c;
+}
+
+#quick-filter-bar[filterActive="nomatches"] #qfb-results-label {
+  color: #ff7777;
+}
+
+#threadTree[filterActive="matches"] {
+  outline-color: #6f9f43;
+}
+
+#threadTree[filterActive="nomatches"] {
+  outline-color: #ba5555;
+}

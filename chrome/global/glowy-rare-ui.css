@@ -1,0 +1,140 @@
+/* GlowySilver Epyrus -- secondary / rare UI adaptation
+ * Rare/security UI dark-surface pass.
+ *
+ * These windows are UXP/XUL chrome, not message/web content.  Keep them on
+ * the Glowy dark palette while leaving document/message bodies untouched.
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* --------------------------------------------------------------------
+ * UXP PIPPKI certificate/security windows.
+ * Current UXP certManager/certViewer/device_manager/exceptionDialog load
+ * chrome://global/skin/, so this theme can style them without registering a
+ * separate pippki skin package.
+ * ------------------------------------------------------------------ */
+#certmanager,
+#certDetails,
+#devicemanager,
+#exceptiondialog,
+#choosetoken,
+#changepassword,
+#load_device,
+#resetpassword,
+#setp12password,
+#clientauthask,
+#downloadcert,
+#editcacert,
+#protectedAuth,
+#createCertInfo {
+  color: #c6c6ca !important;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+}
+
+#certmanager tabbox,
+#certmanager tabpanels,
+#certmanager tabpanel,
+#certDetails tabbox,
+#certDetails tabpanels,
+#certDetails tabpanel,
+#devicemanager grid,
+#exceptiondialog groupbox {
+  color: #c6c6ca !important;
+  background-color: transparent !important;
+}
+
+/* Certificate and security-device trees. */
+#ca-tree,
+#mine-tree,
+#others-tree,
+#websites-tree,
+#orphan-tree,
+#device_tree,
+#info_tree,
+#certPrettyPrint tree,
+#certmanager tree,
+#certDetails tree,
+#devicemanager tree {
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/bg-main.png") repeat left top !important;
+  border-color: #55555a !important;
+}
+
+#certmanager treechildren,
+#certDetails treechildren,
+#devicemanager treechildren {
+  color: #d6d6da !important;
+  background-color: rgba(0,0,0,.74) !important;
+}
+
+#certmanager treechildren::-moz-tree-row(selected),
+#certDetails treechildren::-moz-tree-row(selected),
+#devicemanager treechildren::-moz-tree-row(selected) {
+  background-color: #444449 !important;
+}
+
+#certmanager treechildren::-moz-tree-row(selected, focus),
+#certDetails treechildren::-moz-tree-row(selected, focus),
+#devicemanager treechildren::-moz-tree-row(selected, focus) {
+  background-color: #5b5b60 !important;
+}
+
+#certmanager treechildren::-moz-tree-cell-text(selected),
+#certDetails treechildren::-moz-tree-cell-text(selected),
+#devicemanager treechildren::-moz-tree-cell-text(selected) {
+  color: #fff !important;
+}
+
+#exceptiondialog textbox,
+#certmanager textbox,
+#certDetails textbox,
+#devicemanager textbox,
+#choosetoken textbox,
+#changepassword textbox,
+#load_device textbox,
+#resetpassword textbox,
+#setp12password textbox,
+#clientauthask textbox,
+#downloadcert textbox,
+#editcacert textbox {
+  color: #e6e6e8 !important;
+  background-color: #070708 !important;
+  border-color: #66666b !important;
+}
+
+#exceptiondialog #warningText,
+#exceptiondialog #warningSupplemental,
+#exceptiondialog #headerDescription,
+#exceptiondialog #statusDescription,
+#exceptiondialog #statusLongDescription,
+#exceptiondialog #status2Description,
+#exceptiondialog #status2LongDescription,
+#exceptiondialog #status3Description,
+#exceptiondialog #status3LongDescription {
+  color: #d6d6da !important;
+}
+
+/* --------------------------------------------------------------------
+ * Generic toolkit alert surface.  This is application chrome only.
+ * ------------------------------------------------------------------ */
+.alertBox {
+  color: #d6d6da !important;
+  background: #090909 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border-color: #66666b !important;
+}
+
+.alertBox > .alertImageBox,
+.alertBox > .alertTextBox {
+  color: #d6d6da !important;
+  background-color: rgba(0,0,0,.35) !important;
+  background-image: none !important;
+}
+
+.alertTitle,
+.alertText {
+  color: #d6d6da !important;
+}
+
+.alertText[clickable="true"] {
+  color: #c9b886 !important;
+}

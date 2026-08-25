@@ -1,0 +1,331 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+ :: AdblockPlus ::
+ :: AddonCollector ::
+ :: AttachmentExtractor ::
+ :: CompactHeader ::
+ :: CompactMenu ::
+ :: CuteButtons ::
+ :: FoxClocks ::
+ :: ImageZoom ::
+ :: InfoRSS ::
+ :: Lightning ::
+ :: MailboxAlert ::
+ :: MasterPassword ::
+ :: OpenPGP ::
+ :: QuickFolders ::
+ :: SmoothWheel ::
+ :: Stylish ::
+ :: Table2Clipboard ::
+ :: Thunderbrowse ::
+ :: UpdateNotifier ::
+*/
+
+/* :: AdblockPlus :: */
+
+#abpPreferencesWindow tree{
+  background-image: url("chrome://global/skin/bg-inverse.png");
+}
+#abpPreferencesWindow treechildren::-moz-tree-row {
+  background: transparent none;
+}
+#abpPreferencesWindow treechildren::-moz-tree-row(selected) {
+  background-color: #3069c4;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text {
+  color: #000000;  
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, description-true, selected-false) {
+	color: #808080;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, filter-true, type-whitelist, selected-false) {
+	color: #008000;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, filter-true, type-elemhide, selected-false) {
+	color: #000080;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, filter-false, subscription-upgradeRequired-true, selected-false) {
+	color: #FF0000;
+}
+#abpPreferencesWindow treechildren::-moz-tree-row(filter-true, filter-disabled-true, selected-false),
+#abpPreferencesWindow treechildren::-moz-tree-row(subscription-disabled-true, selected-false) {
+	background-color: #E0E0E0;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, filter-true, type-comment, selected-false) {
+	color: #808080;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(col-filter, filter-true, type-invalid, selected-false) {
+	color: #C00000;
+}
+#abpPreferencesWindow treechildren::-moz-tree-cell-text(selected) {
+  color: white;  
+}
+
+/* :: AddonCollector :: */
+#bandwagon-settings {
+  min-width: 548px;
+}
+#bandwagon-settings #collections-list {
+  border: 1px solid #bbbbbb;
+  -moz-border-radius: 5px;
+}
+
+/* :: AttachmentExtractor :: */
+#AEFirstPopup text {
+  color: black;
+}
+#attachmentextractorPreferences #filenamepattern {
+  color: black;
+}
+#attachmentextractorPreferences #filenamepattern_examplegenerated {
+  color: black;
+}
+#attachmentextractorPreferences #filenamepattern_examplegenerated2 {
+  color: black;
+}
+
+/* :: CompactHeader :: */
+#CompactHeader_hideDetailsButton > .button-box,
+#CompactHeader_showDetailsButton > .button-box {
+  background-image: none;
+}
+
+/* :: CompactMenu :: */
+#compactmenuPrefs #icon_file{
+  -moz-appearance: none;
+}
+#compactmenuPrefs .fileFieldContentBox {
+  background-color: transparent;
+}
+#compactmenuPrefs #multiple-icon-samplebox {
+  border: 1px solid #888888;
+  -moz-border-radius: 5px;
+  background-color: transparent;
+}
+
+/* :: CuteButtons :: */
+#cutebuttons groupbox{
+  margin: 3px 2px 2px 2px;
+}
+
+/* :: FoxClocks :: */
+#foxclocksoverlay-clock-id-0 { background-color: white; }
+#foxclocksoverlay-clock-id-0 > label { color: black; }
+#foxclocksoverlay-clock-id-1 { background-color: white; }
+#foxclocksoverlay-clock-id-1 > label { color: black; }
+#foxclocksoverlay-clock-id-2 { background-color: white; }
+#foxclocksoverlay-clock-id-2 > label { color: black; }
+#foxclocksoverlay-clock-id-3 { background-color: white; }
+#foxclocksoverlay-clock-id-3 > label { color: black; }
+#foxclocksoverlay-clock-id-4 { background-color: white; }
+#foxclocksoverlay-clock-id-4 > label { color: black; }
+#foxclocksoverlay-clock-id-5 { background-color: white; }
+#foxclocksoverlay-clock-id-5 > label { color: black; }
+#foxclocksoverlay-clock-id-6 { background-color: white; }
+#foxclocksoverlay-clock-id-6 > label { color: black; }
+#foxclocksoverlay-clock-id-7 { background-color: white; }
+#foxclocksoverlay-clock-id-7 > label { color: black; }
+#foxclocksoverlay-clock-id-8 { background-color: white; }
+#foxclocksoverlay-clock-id-8 > label { color: black; }
+#foxclocksoverlay-clock-id-9 { background-color: white; }
+#foxclocksoverlay-clock-id-9 > label { color: black; }
+
+/* :: ImageZoom :: */
+#imagezoom-options-dialog #mainmenu {
+  border: 1px solid #bbbbbb;
+  background-color: transparent;
+}
+#imagezoom-options-dialog menuitem {
+  background: #000000 none;
+}
+#imagezoom-options-dialog menuitem:hover {
+  background: #888888 none;
+}
+#imagezoom-options-dialog #submenu,
+#imagezoom-options-dialog #subrotatemenu {
+  border: 1px solid #bbbbbb;
+  background-color: #000000;
+}
+#imagezoom-options-dialog label {
+  color: #c6c6ca;  
+}
+#imagezoom-options-dialog .url {
+  color: #c6c6ca;
+}
+
+/* :: InfoRSS :: */
+#inforssOption groupbox {
+  background-color: transparent !important;
+}
+
+#inforss-hbox {
+  background-color: white;
+}
+
+/* :: Lightning :: */
+#calendarContent >  #ltnSidebar {
+  background-color: rgba(0,0,0,.75);
+}
+#calendar-nav-control label {
+  color: #d6d6da !important;
+}
+#calendar-view-box > #view-deck description,
+#calendar-view-box > #view-deck label {
+  color: black;
+}
+
+#today-pane-panel {
+  background-color: rgba(0,0,0,.75);
+  color: #c6c6ca;
+  border-left: 1px solid transparent;
+}
+.agenda-container-box[current="true"],
+.agenda-alldaycontainer-box[current="true"],
+.agenda-checkbox[current="true"],
+.agenda-container-box[selected="true"][current="true"][disabled="true"],
+.agenda-allday-container-box[selected="true"][current="true"][disabled="true"],
+.agenda-checkbox[selected="true"][current="true"][disabled="true"] {
+  color: black;
+}
+#agenda-toolbar {
+  background-image: none;
+  background-color: -moz-dialog;
+}
+#agenda-toolbar label {
+  color: -moz-dialogtext;
+}
+.minimonth-month-box label {
+  color: -moz-FieldText;
+}
+.minimonth-row-header {
+  color: -moz-FieldText;
+}
+#agenda-panel > #mini-day-box label {
+  color: -moz-FieldText;
+}
+#calendar-task-tree > .calendar-task-tree {
+  background-image: none;
+}
+.calendar-task-tree  treechildren::-moz-tree-row {
+  background: transparent none;
+}
+.calendar-task-tree  treechildren::-moz-tree-row(selected, focus) {
+  background: Highlight none;
+}
+.calendar-task-tree-col-priority {
+  -moz-image-region: rect(0px 91px 13px 78px);
+}
+#calendar-task-details-container {
+  border-color: transparent;
+}
+#calendar-task-details-container label {
+  color: #c6c6ca;
+}
+#calendar-task-details-description {
+  -moz-appearance: none !important;
+  border: 1px solid #bbbbbb !important;
+}
+#unifinder-todo-tree > .calendar-task-tree {
+  background: -moz-field none;
+}
+#bottom-events-box > #unifinder-searchBox {
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+}
+#calendar-task-box > #task-addition-box {
+  background-image: -moz-linear-gradient(#888888, #000000 15%, #000000 85%, #888888);
+}
+
+#calendar-event-dialog #event-toolbox,
+#calendar-task-dialog #event-toolbox {
+  -moz-appearance: none;
+  border-top: none;
+  background-color: white;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, .5),
+                    rgba(255, 255, 255, .0) 10%, rgba(0, 0, 0, .03) 50%,
+                    rgba(0, 0, 0, .1) 90%, rgba(0, 0, 0, .2));
+  color: black;
+}
+#calendar-event-dialog toolbar,
+#calendar-task-dialog toolbar {
+  background-image: none;
+  border-top: 0px;
+  border-bottom: 1px solid #bbbbbb;
+}
+
+#calendar-event-dialog .timepicker-text-class label {
+  color: -moz-DialogText;
+}
+
+#calendar-event-dialog-attendees-v2 description,
+#calendar-event-dialog-attendees-v2 label {
+  color: #c6c6ca;
+}
+#calendar-event-dialog-attendees-v2  listbox[disabled="true"] {
+   color: #c6c6ca !important;
+}
+#calendar-event-dialog-attendees-v2  .timepicker-text-class label{
+  color: -moz-FieldText;
+}
+
+/* :: MailboxAlert :: */
+#alertWindow > #alertContainer > #alertBox > #alertTextBox > #alertMessageField > #message_field {
+  color: black;
+}
+
+/* :: MasterPassword :: */
+#mapaPlus-options-dialog tabpanels {
+  -moz-appearance: none;
+}
+#masterPasswordPlusOptions tabpanels {
+  -moz-appearance: none;
+}
+
+/* :: OpenPGP :: */
+#pgWelcome .enigmailLink {
+  color: #c6c6ca;
+}
+
+/* :: QuickFolders :: */
+#QuickFolders-Toolbar toolbarbutton label{
+  color: inherit;
+}
+
+/* :: SmoothWheel :: */
+#SmoothWheelSettingTabpanels .text-link  {
+  color: #c6c6ca !important;
+}
+
+/* :: Stylish :: */
+#stylish #stylishCustomToolbox .toolbarbutton-text {
+  color: ButtonText;
+}
+
+/* :: Table2Clipboard :: */
+#t2cSettingsDialog .link {
+  color: #c6c6ca;
+}
+
+/* :: Thunderbrowse :: */
+#tbcapturetoggler {
+  background-image: url("chrome://global/skin/bg-main.png");
+}
+#newTab,
+#tbrowse-tab-button {
+  list-style-image: url("chrome://global/skin/tabs/newtab.png") !important;
+}
+#newTab:hover,
+#tbrowse-tab-button:hover {
+  list-style-image: url("chrome://global/skin/tabs/newtab-hover.png") !important;
+  border-color: transparent;
+}
+
+/* :: UpdateNotifier :: */
+
+#un-options .un-link {
+  color: #c6c6ca;
+  text-decoration: underline;
+}
+#un-alert-box {
+  background-image: url("chrome://global/skin/bg-main.png");
+}

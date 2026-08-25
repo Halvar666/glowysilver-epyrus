@@ -1,0 +1,344 @@
+/* GlowySilver Epyrus -- Calendar / Lightning adaptation
+ * Calendar / Lightning / Today Pane dark adaptation.
+ *
+ * This is deliberately a compatibility layer on top of Epyrus 2.2.1's
+ * calendar skeleton.  It does not replace the calendar skin packages or
+ * their icons; it only changes surfaces/colours that otherwise remain light.
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* --------------------------------------------------------------------
+ * Epyrus calendar view palette.  Current calendar-views.css is driven by
+ * these custom properties, so changing the palette preserves its structure.
+ * ------------------------------------------------------------------ */
+window {
+  --viewColor: #e3e3e6 !important;
+  --viewBackground: #090909 !important;
+  --viewBorderColor: #4f4f54 !important;
+  --viewDoubleBorderColor: #090909 #5e5e64 !important;
+  --viewHighlightBorderColor: #a7a7ad !important;
+  --viewTodayBorderColor: #b9a77c !important;
+  --viewTodayBackground: #25231f !important;
+  --viewTodayLabelColor: #fff2c8 !important;
+  --viewTodayLabelBackground: #514833 !important;
+  --viewTodayLabelSelectedColor: #ffffff !important;
+  --viewTodayLabelSelectedBackground: #62573e !important;
+  --viewTodayOffBackground: #1d1c1a !important;
+  --viewTodayDayLabelBackground: #403927 !important;
+  --viewTodayWeekendBackground: #211f1b !important;
+  --viewWeekendBackground: #111315 !important;
+  --viewHeaderSelectedBackground: #37373b !important;
+  --viewDayBoxSelectedBackground: #343438 !important;
+  --viewDayBoxOffSelectedBackground: #2a2a2e !important;
+  --viewDayBoxOtherSelectedBackground: #2d2d31 !important;
+  --viewMonthCurrentBackground: #0b0b0c !important;
+  --viewMonthOtherBackground: #141416 !important;
+  --viewMonthDayBoxSelectedColor: #ffffff !important;
+  --viewMonthDayBoxSelectedBackground: #45454a !important;
+  --viewMonthDayBoxLabelColor: #dddddf !important;
+  --viewMonthDayBoxLabelTexture: linear-gradient(rgba(255,255,255,.035), rgba(0,0,0,.08)) !important;
+  --viewMonthDayBoxWeekLabel: #8d8d93 !important;
+  --viewMonthDayOtherBackground: #151517 !important;
+  --viewMonthDayOtherLabelBackground: #202023 !important;
+  --viewMonthDayOffLabelBackground: #191b1a !important;
+  --viewOffTimeBackground: #121214 !important;
+  --viewTimeBoxColor: #aaaab0 !important;
+  --viewDayLabelSelectedColor: #ffffff !important;
+  --viewDayLabelSelectedBackground: #49494e !important;
+  --viewDragboxColor: #ffffff !important;
+  --viewDragboxBackground: linear-gradient(#68686e, #38383c) !important;
+  --viewDropshadowBackground: #77777c !important;
+}
+
+/* --------------------------------------------------------------------
+ * Main Calendar / Tasks shell and sidebars
+ * ------------------------------------------------------------------ */
+#calendarContent,
+#calendarDisplayDeck,
+#calendar-view-box,
+#view-deck,
+#calendar-nav-control,
+#ltnSidebar,
+#calendar-panel,
+#task-tree-filtergroup,
+#task-addition-box,
+#calendar-task-box,
+#calendar-task-details-container,
+#calendar-task-view-splitter,
+#unifinder-searchBox,
+#bottom-events-box,
+#calendar-view-splitter,
+#today-pane-panel,
+#agenda-panel,
+#todo-tab-panel,
+#today-minimonth-box {
+  color: #d6d6da !important;
+  background-color: #090909 !important;
+}
+
+#calendarContent,
+#ltnSidebar,
+#today-pane-panel {
+  background-image: url("chrome://global/skin/bg-gen.png") !important;
+  background-repeat: repeat !important;
+  background-position: left top !important;
+}
+
+#calendar-panel,
+#task-tree-filtergroup,
+#unifinder-searchBox,
+#today-pane-panel > sidebarheader,
+#agenda-toolbar,
+#todo-tab-panel > toolbar {
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/toolbar/toolbox-bg.png") repeat-x left top !important;
+  border-color: #55555a !important;
+}
+
+#calendar-view-splitter,
+#today-pane-splitter,
+#ltnSidebar-splitter,
+#calendar-task-view-splitter {
+  border-color: #55555a !important;
+  background-color: #111113 !important;
+}
+
+
+
+#calendar-nav-control,
+#calendar-nav-control > *,
+#calendar-nav-control label,
+#calendar-nav-control description {
+  color: #d6d6da !important;
+}
+
+#calendar-nav-control {
+  background: #090909 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border-top: 1px solid #55555a !important;
+  border-bottom: 1px solid #55555a !important;
+}
+
+#calendar-nav-control toolbarbutton,
+#calendar-nav-control .toolbarbutton-1,
+#calendar-nav-control .view-navigation-button,
+#calendar-nav-control .calendar-navigation-button {
+  color: #d6d6da !important;
+}
+
+/* Keep current Calendar/Task trees on the same Glowy surface as mail trees. */
+#calendar-list-tree-widget,
+#calendar-list-tree,
+#calendar-listtree,
+#calendar-task-tree,
+#unifinder-search-results-tree,
+#task-tree,
+.calendar-task-tree {
+  appearance: none !important;
+  color: #d6d6da !important;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border-color: #55555a !important;
+}
+
+#calendar-list-tree-widget treechildren,
+#calendar-list-tree treechildren,
+#calendar-listtree treechildren,
+#calendar-task-tree treechildren,
+#unifinder-search-results-tree treechildren,
+#task-tree treechildren {
+  color: #d6d6da !important;
+  background-color: rgba(0,0,0,.72) !important;
+}
+
+#calendar-task-tree > treechildren::-moz-tree-row(selected),
+#unifinder-search-results-tree > treechildren::-moz-tree-row(selected),
+#task-tree > treechildren::-moz-tree-row(selected) {
+  background-color: #414146 !important;
+}
+
+#calendar-task-tree > treechildren::-moz-tree-row(selected, focus),
+#unifinder-search-results-tree > treechildren::-moz-tree-row(selected, focus),
+#task-tree > treechildren::-moz-tree-row(selected, focus) {
+  background-color: #5b5b60 !important;
+}
+
+#calendar-task-tree > treechildren::-moz-tree-cell-text(selected),
+#calendar-task-tree > treechildren::-moz-tree-cell-text(selected, focus),
+#unifinder-search-results-tree > treechildren::-moz-tree-cell-text(selected),
+#unifinder-search-results-tree > treechildren::-moz-tree-cell-text(selected, focus),
+#task-tree > treechildren::-moz-tree-cell-text(selected),
+#task-tree > treechildren::-moz-tree-cell-text(selected, focus) {
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------
+ * Today Pane / agenda
+ * ------------------------------------------------------------------ */
+#today-pane-panel > *,
+#agenda-listbox,
+agenda-richlist-item,
+agenda-allday-richlist-item,
+agenda-checkbox-richlist-item {
+  color: #d6d6da !important;
+}
+
+#agenda-listbox {
+  appearance: none !important;
+  background: #050505 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border-color: #55555a !important;
+}
+
+.agenda-container-box,
+.agenda-allday-container-box {
+  border-bottom-color: #4b4b50 !important;
+}
+
+.agenda-container-box[selected="true"],
+.agenda-allday-container-box[selected="true"],
+.agenda-checkbox[selected="true"] {
+  color: #ffffff !important;
+  background-color: #4a4a4f !important;
+}
+
+.agenda-container-box[current="true"],
+.agenda-allday-container-box[current="true"],
+.agenda-checkbox[current="true"] {
+  color: #fff2c8 !important;
+  background-color: #2b2923 !important;
+}
+
+/* --------------------------------------------------------------------
+ * Mini-month.  Epyrus 2.2.1 exposes its palette as custom properties.
+ * ------------------------------------------------------------------ */
+minimonth {
+  --mmMainBackground: #080809 !important;
+  --mmHighlightColor: #ffffff !important;
+  --mmHighlightBackground: #5b5b60 !important;
+  --mmHighlightBorderColor: #a5a5aa !important;
+  --mmBoxBackground: #111113 !important;
+  --mmBoxBorderColor: #55555a !important;
+  --mmDayColor: #d8d8dc !important;
+  --mmDayBorderColor: #161618 !important;
+  --mmDayOtherColor: #77777d !important;
+  --mmDayOtherBackground: #101012 !important;
+  --mmDayOtherBorderColor: #171719 !important;
+  --mmDayTodayBackground: #322e24 !important;
+  --mmDayTodayBorderColor: #b6a476 !important;
+  --mmDaySelectedColor: #ffffff !important;
+  --mmDaySelectedBackground: #505056 !important;
+  --mmDaySelectedBorderColor: #8e8e94 !important;
+  --mmDaySelectedTodayBackground: #5c5138 !important;
+  --mmDaySelectedTodayBorderColor: #c4b17d !important;
+  color: #d8d8dc !important;
+  background-color: #080809 !important;
+}
+
+.minimonth-month-box {
+  color: #d8d8dc !important;
+}
+
+/* --------------------------------------------------------------------
+ * Calendar dialogs: event/task, alarms, invitations, subscriptions,
+ * recurrence, properties and timezone selectors.
+ * ------------------------------------------------------------------ */
+#calendar-event-dialog,
+#calendar-task-dialog,
+#calendar-alarm-dialog,
+#calendar-invitations-dialog,
+#calendar-properties-dialog,
+#calendar-subscriptions-dialog,
+#calendar-event-dialog-recurrence,
+#calendar-event-dialog-timezone,
+#calendar-event-dialog-attendees,
+#calendar-summary-dialog,
+#calendar-occurrence-prompt,
+#calendar-creation-wizard,
+#calendar-creation-dialog,
+#calendar-event-dialog-inner,
+#event-grid,
+#event-grid-tabbox,
+#event-grid-tabpanels,
+#item-description-box,
+#calendar-event-dialog-attendees-vbox,
+#freebusy-grid,
+#timezone-grid {
+  color: #d6d6da !important;
+  background-color: #090909 !important;
+}
+
+#calendar-event-dialog,
+#calendar-task-dialog,
+#calendar-alarm-dialog,
+#calendar-invitations-dialog,
+#calendar-properties-dialog,
+#calendar-subscriptions-dialog,
+#calendar-event-dialog-recurrence,
+#calendar-event-dialog-timezone,
+#calendar-event-dialog-attendees,
+#calendar-summary-dialog,
+#calendar-occurrence-prompt,
+#calendar-creation-wizard,
+#calendar-creation-dialog {
+  background-image: url("chrome://global/skin/bg-main.png") !important;
+  background-repeat: repeat !important;
+}
+
+/* Text/list controls that calendar CSS otherwise leaves at -moz-Field. */
+#calendarContent textbox,
+#calendarContent menulist,
+#today-pane-panel textbox,
+#today-pane-panel menulist,
+#calendar-task-box textbox,
+#calendar-task-box menulist,
+#calendar-event-dialog textbox,
+#calendar-event-dialog menulist,
+#calendar-task-dialog textbox,
+#calendar-task-dialog menulist,
+#calendar-properties-dialog textbox,
+#calendar-properties-dialog menulist,
+#calendar-subscriptions-dialog textbox,
+#calendar-subscriptions-dialog menulist,
+#calendar-event-dialog-attendees textbox,
+#calendar-event-dialog-attendees menulist,
+#calendar-event-dialog-timezone textbox,
+#calendar-event-dialog-timezone menulist {
+  color: #e6e6e8 !important;
+  background-color: #070708 !important;
+  border-color: #69696e !important;
+}
+
+#calendar-event-dialog richlistbox,
+#calendar-task-dialog richlistbox,
+#calendar-alarm-dialog richlistbox,
+#calendar-invitations-dialog richlistbox,
+#calendar-subscriptions-dialog richlistbox,
+#calendar-event-dialog-attendees listbox,
+#calendar-event-dialog-attendees tree,
+#calendar-event-dialog-timezone listbox,
+#calendar-event-dialog-timezone tree {
+  appearance: none !important;
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border-color: #55555a !important;
+}
+
+/* HTML invitation fragments belong to application chrome, not message body. */
+html|body#imipHtml-body,
+html|body.lightning-invitation-body,
+html|div#imipHtml-header,
+html|div#imipHtml-table,
+html|table#imipHtml-table {
+  color: #d6d6da !important;
+  background-color: #090909 !important;
+}
+
+/* iMIP bar / toolbar should match the dark message header. */
+#imip-bar,
+#imip-view-toolbar,
+#imip-view-toolbar > toolbarbutton,
+#imip-view-toolbar > .toolbarbutton-1.msgHeaderView-button {
+  color: #d6d6da !important;
+  background-color: #0b0b0c !important;
+  border-color: #55555a !important;
+}

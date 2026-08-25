@@ -1,0 +1,27 @@
+<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    g { stroke: #d6dae2; stroke-width: 1px; fill: none; }
+    g:not(:target) { display: none; }
+    use:target > g { display: initial; }
+    .highlight > g { stroke: #ffffff; }
+    .inactive > g { stroke: #8a8e96; }
+  </style>
+  <g id="close">
+    <line x1="1" y1="1" x2="11" y2="11"/>
+    <line x1="11" y1="1" x2="1" y2="11"/>
+  </g>
+  <g id="maximize"><rect x="1.5" y="1.5" width="9" height="9"/></g>
+  <g id="minimize"><line x1="1" y1="5.5" x2="11" y2="5.5"/></g>
+  <g id="restore">
+    <rect x="1.5" y="3.5" width="7" height="7"/>
+    <polyline points="3.5,3.5 3.5,1.5 10.5,1.5 10.5,8.5 8.5,8.5"/>
+  </g>
+  <use id="close-highlight" class="highlight" xlink:href="#close"/>
+  <use id="maximize-highlight" class="highlight" xlink:href="#maximize"/>
+  <use id="minimize-highlight" class="highlight" xlink:href="#minimize"/>
+  <use id="restore-highlight" class="highlight" xlink:href="#restore"/>
+  <use id="close-inactive" class="inactive" xlink:href="#close"/>
+  <use id="maximize-inactive" class="inactive" xlink:href="#maximize"/>
+  <use id="minimize-inactive" class="inactive" xlink:href="#minimize"/>
+  <use id="restore-inactive" class="inactive" xlink:href="#restore"/>
+</svg>

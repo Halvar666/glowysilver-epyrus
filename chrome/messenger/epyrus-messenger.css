@@ -1,0 +1,294 @@
+/* GlowySilver Epyrus -- Messenger adaptation
+ * Epyrus 2.2.1 Messenger adaptation layer.
+ *
+ * The selectors in this file follow the current Epyrus/TB52-generation
+ * Messenger skeleton.  The visual values deliberately come from the
+ * original GlowySilver Thunder donor theme.
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* --------------------------------------------------------------------
+ * Main 3-pane surfaces
+ * ------------------------------------------------------------------ */
+
+#mailContent,
+#threadPaneBox,
+#messagepanebox,
+#tabpanelcontainer,
+#accountCentralBox {
+  appearance: none;
+  color: #c6c6ca;
+  background-color: #000;
+}
+
+#folderPaneBox {
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top;
+}
+
+#folderTree,
+#threadTree {
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top;
+  border-color: #4d4d4f;
+}
+
+#threadTree > treechildren {
+  color: #c6c6ca;
+  background-color: rgba(0, 0, 0, .76);
+}
+
+/* Epyrus paints the XUL tree body on treechildren. Put the original
+ * GlowySilver marble directly on that layer so it stays visible. */
+#folderTree > treechildren {
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+}
+
+/* Current Epyrus grouped-thread rows. */
+#threadTree > treechildren::-moz-tree-row(dummy),
+#threadTree > treechildren::-moz-tree-row(dummy, odd) {
+  background-color: rgba(35, 35, 37, .96);
+  border-bottom: 1px solid #4d4d4f;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected),
+#folderTree > treechildren::-moz-tree-row(selected) {
+  background-color: #404044;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected, focus),
+#folderTree > treechildren::-moz-tree-row(selected, focus) {
+  background-color: #5b5b60;
+}
+
+#threadTree > treechildren::-moz-tree-cell-text(selected),
+#folderTree > treechildren::-moz-tree-cell-text(selected),
+#threadTree > treechildren::-moz-tree-cell-text(selected, focus),
+#folderTree > treechildren::-moz-tree-cell-text(selected, focus) {
+  color: #fff;
+}
+
+#folderTree > treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+#folderTree > treechildren::-moz-tree-cell-text(hasUnreadMessages-true),
+#folderTree > treechildren::-moz-tree-cell-text(closed, subfoldersHaveUnreadMessages-true),
+#threadTree > treechildren::-moz-tree-cell-text(unread) {
+  color: #fff;
+  font-weight: bold;
+}
+
+#folderTree > treechildren::-moz-tree-cell-text(folderNameCol, noSelect-true) {
+  color: #88888d;
+}
+
+/* Epyrus 2.x pane headers and splitters. */
+#folderPaneHeader,
+#folderPane-toolbar,
+#attachment-view-toolbox {
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #4d4d4f;
+}
+
+#folderPaneHeader,
+#folderPane-toolbar {
+  border-bottom: 1px solid #4d4d4f;
+}
+
+#messagepanebox,
+#accountCentralBox {
+  border-bottom: 1px solid #4d4d4f;
+}
+
+#attachment-splitter {
+  border-bottom-color: #4d4d4f;
+}
+
+#attachment-splitter[state="collapsed"]:hover {
+  border-bottom-color: #9d9da2;
+}
+
+/* --------------------------------------------------------------------
+ * Navigation toolbox, tab strip and current tab internals
+ * ------------------------------------------------------------------ */
+
+#navigation-toolbox,
+#mail-toolbox,
+#tabs-toolbar {
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/toolbar/toolbox-bg.png") repeat-x left top;
+  border-color: #4d4d4f;
+}
+
+#tabs-toolbar:not(:-moz-lwtheme) {
+  background-image: url("chrome://global/skin/toolbar/toolbox-bg.png");
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+.tabmail-tab {
+  appearance: none;
+  color: #bdbdc2;
+  background: rgba(0, 0, 0, .45);
+  border: 1px solid #55555a;
+  border-bottom-color: #77777c;
+  margin: 1px 0 0 0;
+  padding: 1px 2px;
+}
+
+.tabmail-tab:hover:not([selected]) {
+  color: #fff;
+  background-color: rgba(80, 80, 84, .52);
+}
+
+.tabmail-tab[selected] {
+  color: #fff;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #8a8a8f;
+  border-bottom-color: #000;
+}
+
+.tabmail-tab:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text,
+.tabmail-tab[selected]:not(:-moz-lwtheme) > .tab-stack > .tab-content > .tab-text {
+  color: inherit;
+}
+
+.tabmail-tab[selected]:focus > .tab-stack > .tab-content > .tab-text {
+  border-color: #dfd2b7;
+}
+
+.tab-close-button,
+.tabs-closebutton,
+.tabs-alltabs-button,
+.tabmail-arrowscrollbox > .scrollbutton-up,
+.tabmail-arrowscrollbox > stack > .scrollbutton-down {
+  color: #c6c6ca;
+  background-color: transparent;
+}
+
+/* --------------------------------------------------------------------
+ * Quick Filter Bar - current Epyrus selectors
+ * ------------------------------------------------------------------ */
+
+#quick-filter-bar,
+#quick-filter-bar-main-bar,
+#quick-filter-bar-expando,
+#quick-filter-bar-filter-text-bar {
+  appearance: none;
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #4d4d4f;
+}
+
+#quick-filter-bar {
+  border-bottom: 1px solid #4d4d4f;
+}
+
+#qfb-qs-textbox {
+  color: #e6e6e8;
+  background-color: #090909;
+  border-color: #606066;
+}
+
+#quick-filter-bar toolbarbutton,
+#quick-filter-bar button {
+  color: #c6c6ca;
+}
+
+#qfb-results-label {
+  color: #aaaab0;
+}
+
+#quick-filter-bar[filterActive="matches"] #qfb-results-label {
+  color: #91c95c;
+}
+
+#quick-filter-bar[filterActive="nomatches"] #qfb-results-label {
+  color: #ff7777;
+}
+
+#threadTree[filterActive="matches"] {
+  outline-color: #6f9f43;
+}
+
+#threadTree[filterActive="nomatches"] {
+  outline-color: #ba5555;
+}
+
+/* --------------------------------------------------------------------
+ * Message header / notification surfaces introduced or reworked later
+ * ------------------------------------------------------------------ */
+
+#msgHeaderView,
+#expandedHeaderView,
+#collapsedHeaderView,
+#attachmentView,
+#attachmentList,
+#attachmentBar {
+  color: #c6c6ca;
+  background: #000 url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #4d4d4f;
+}
+
+#expandedsubjectBox,
+#expandedfromBox,
+#expandedtoBox,
+#expandedccBox,
+#expandedbccBox,
+#expandedreply-toBox {
+  color: #c6c6ca;
+}
+
+.headerName,
+#attachmentSize {
+  color: #f1d7a4;
+}
+
+.headerValue,
+.emailDisplayButton,
+.emailDisplayButton > .toolbarbutton-text {
+  color: #e1e1e3;
+}
+
+notification,
+notificationbox,
+notification[value="remoteContent"],
+notification[value="phishingContent"],
+notification[value="junkContent"] {
+  color: #e6e6e8;
+  background: #18181a url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #5d5d62;
+}
+
+notification button,
+notification toolbarbutton {
+  color: #e6e6e8;
+}
+
+/* --------------------------------------------------------------------
+ * Current search / status surfaces
+ * ------------------------------------------------------------------ */
+
+#searchInput,
+#qfb-qs-textbox,
+.searchBox,
+.remote-gloda-search {
+  color: #e6e6e8;
+  background-color: #080808;
+}
+
+statusbar,
+#status-bar,
+#status-bar > statusbarpanel {
+  color: #c6c6ca;
+  background-color: transparent;
+}
+
+#quotaMeter {
+  appearance: none;
+}

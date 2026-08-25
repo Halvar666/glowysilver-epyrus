@@ -1,0 +1,108 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Because this sheet is loaded synchronously while the user is waiting for the
+   compose window to appear, it must not @import a ton of other things, and
+   especially must not trigger network access. */
+
+/* ===== messageQuotes.css =================================================
+  == Shared styles such as block quote colors and signature style
+  == between the message body during
+  == message display and the mail editor instance for mail compose.
+  ======================================================================= */
+
+/* Epyrus workaround for MS Outlook mails where the line-height is set to 0. */
+body {
+  line-height: initial !important;
+}
+
+/* GlowySilver Epyrus 0.1a16
+ * Epyrus injects this skin URI into the active compose editor as an editor
+ * override stylesheet.  Keep all dark-canvas presentation scoped to the
+ * about:blank compose document, so normal message display remains unchanged.
+ */
+@-moz-document url-prefix("about:blank") {
+  html,
+  body {
+    background-color: #070708 !important;
+    color: #e6e6e8 !important;
+  }
+
+  html,
+  body {
+    min-height: 100% !important;
+  }
+
+  a:link {
+    color: #8fc7ff !important;
+  }
+
+  a:visited {
+    color: #c7a6ff !important;
+  }
+
+  /* Reply/forward material should remain readable even when the original
+     message did not define its own foreground colour. Explicit author colour
+     formatting on descendants is intentionally left intact. */
+  blockquote[type="cite"] {
+    color: #c8c9cc !important;
+  }
+
+  .moz-txt-sig,
+  .moz-signature {
+    color: #97999e !important;
+  }
+
+  .moz-txt-sig > a,
+  .moz-signature > a {
+    color: #80b8e8 !important;
+  }
+
+  ::-moz-selection {
+    color: #ffffff !important;
+    background-color: #555b66 !important;
+  }
+}
+
+/* ::::: signature ::::: */
+
+@media not print {
+  div.moz-text-flowed > div.moz-txt-sig,
+  div.moz-text-plain > pre > div.moz-txt-sig,
+  pre.moz-signature {
+    opacity: 0.6;
+  }
+}
+
+/* ::::: Turn on borders and padding for quotes. ::::: */
+
+blockquote[type=cite] {
+  padding: 0.4ex 1ex;
+  margin: 1ex;
+  border-width: 0 2px;
+  border-style: none solid none solid;
+  border-radius: 2px;
+}
+
+/* ::::: Colorize block quote borders. We only go 5 levels deep. ::::: */
+
+blockquote[type=cite] {
+  border-color: rgb(114,159,207); /* Sky Blue 1 */
+}
+
+blockquote[type=cite] blockquote[type=cite] {
+  border-color: rgb(173,127,168); /* Plum 1 */
+}
+
+blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] {
+  border-color: rgb(138,226,52); /* Chameleon 1 */
+}
+
+blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] {
+  border-color: rgb(252,175,62); /* Orange 1 */
+}
+
+blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] blockquote[type=cite] {
+  border-color: rgb(233,185,110); /* Chocolate 1 */
+}

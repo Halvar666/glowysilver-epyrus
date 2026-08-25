@@ -1,0 +1,235 @@
+GlowySilver Epyrus - porting notes
+======================================
+
+
+1.0.0rc1
+--------
+- First release candidate under the final name GlowySilver Epyrus.
+- Based on the cleaned 0.1a28 development baseline; no intentional visual changes.
+- Release metadata and licensing/attribution files added.
+- Original GlowySilver Thunder theme by glowplug is GPL v3.0.
+- Selected artwork derived from the Epyrus default theme remains MPL 2.0.
+
+0.1a7
+-----
+Secondary UI transplant / dark-surface audit.
+
+- Parked the experimental Compose dark-canvas XBL hook from 0.1a6. The Compose
+  chrome remains dark, but the message body canvas is intentionally left at
+  Epyrus default until that issue is revisited.
+- Added Epyrus 2.2.1/TB52-generation coverage for Preferences and application
+  handler lists, while preserving the original Glowy preference artwork.
+- Added current Address Book surfaces and selection states (directory tree,
+  results tree, card view and headers).
+- Added current Account Manager tree/archive/identity/SMTP dark surfaces.
+- Hardened the current Add-ons Manager list/detail/category/search surfaces.
+- Removed explicit light EULA, tab-modal prompt, about and support field
+  backgrounds that could break the full-dark design.
+- Kept Linux and Windows corrections separate; both disable native light
+  painting on the newly audited secondary tree/list surfaces.
+
+Open issue: Compose message-body editing canvas is still white. No further
+experimental runtime hook is active in this build.
+
+0.1a4
+-----
+Compose transplant based on the current Epyrus 2.2.1 / TB52-generation
+compose structure. Added dark styling for the compose toolbox, headers,
+recipient addressing widget, Subject, attachment pane, Format toolbar,
+notifications, findbar and editor frame.
+
+The editable message document is darkened through a chrome.manifest redirect
+of chrome://editor/content/EditorContent.css. Epyrus editor.js loads that URI
+as an nsIEditor override stylesheet. This is intentionally display-only: the
+dark background and light foreground are not inserted into the message DOM and
+therefore are not serialized into outgoing HTML or plain-text mail.
+
+Linux/Windows platform layers remain separate. No intentional changes were
+made to the already-tested 0.1a3 Messenger menubar geometry fix.
+
+0.1a3
+-----
+Hotfix: keep menubar item geometry constant between normal and hover/active
+states. The old Thunderbird 11 rule added top padding and changed border widths,
+which made Epyrus resize the menubar and shift the entire content area down.
+No other visual area was intentionally changed in this build.
+
+This build starts the actual Messenger transplant.  It does not simply bump
+compatibility metadata: the current Epyrus/TB52-generation selectors are now appended to the
+corresponding Messenger stylesheets (mailWindow1, tabmail, quickFilterBar,
+messageHeader and messenger) while retaining the original Glowy textures,
+colours and artwork.  epyrus-messenger.css is retained as an audit/mapping file.
+
+Audited / adapted in 0.1a2:
+- main 3-pane surfaces (mailContent, folder/thread trees, message pane)
+- current grouped-thread and selection selectors
+- folder pane header and toolbar
+- current navigation toolbox and tab strip internals
+- current Quick Filter Bar selectors
+- current message header / attachment / notification surfaces
+- search and status surfaces
+- Linux and Windows compatibility layers kept separate from shared styling
+
+Still donor-first / pending deeper Epyrus transplant:
+- full toolbar icon selector audit
+- Compose editor and all addressing/format controls
+- Address Book
+- Preferences / Account Manager
+- Add-ons Manager
+- dialogs and secondary windows
+- Calendar/Lightning integration
+
+The old donor CSS remains intentionally present for visual coverage while each
+area is migrated to current Epyrus selectors.  This makes regressions easier to
+localise during alpha testing.
+
+
+0.1a5
+------
+- Replaced the ineffective chrome URL redirect for EditorContent.css.
+- Added a compose XUL overlay registered against Epyrus messengercompose.xul.
+- Added a compose state listener which applies the dark canvas directly through
+  nsIEditorStyleSheets.addOverrideStyleSheet() after NotifyComposeBodyReady.
+- Dark editor colours remain presentation-only and are not serialized into sent mail.
+
+0.1a8
+-----
+- Added a shared Epyrus 2.2.1 Calendar/Lightning compatibility layer.
+- Darkened calendar/day/week/month views through the current Epyrus view palette variables.
+- Darkened Today Pane, agenda list, mini-month, task/unifinder trees, iMIP chrome and calendar dialogs.
+- Preserved original Glowy textures for shell/sidebar surfaces; calendar grid uses subdued flat dark shades for readability.
+- Added separate Linux/GTK and Windows native-control guards for Calendar/Lightning.
+- Compose message editor remains intentionally unresolved and unchanged from 0.1a7.
+
+
+0.1a9
+- Darkened #calendar-nav-control (the calendar navigation strip above the day/week/multiview area).
+- Forced light foreground on its labels/descriptions to eliminate the remaining pale strip in Calendar view.
+
+
+0.1a10
+- Added explicit dark/textured Account Central surface for Epyrus 2.2.1.
+- Darkened RSS Feed Subscriptions, including its formerly white backgroundBox.
+- Darkened the current Subscribe dialog trees/search/status areas.
+- Darkened the HTML multi-message summary shown when multiple messages are selected.
+- Compose editor body remains intentionally deferred; no new Compose experiment in this build.
+
+
+0.1a11
+- Added current Epyrus 2.2.1 Search dialog dark-surface selectors.
+- Added current Message Filters / Filter Editor dark-surface selectors.
+- Hardened Activity Manager surfaces and search field.
+- Added missing Epyrus-native messenger/downloads/aboutDownloads.css with a Glowy dark adaptation.
+- Hardened the legacy mozapps Download Manager as a fallback.
+- Compose editor body remains intentionally deferred.
+
+
+0.1a12
+- Added UXP PIPPKI dark coverage through the global skin for Certificate Manager, Certificate Viewer, Security Devices and certificate-exception dialogs.
+- Darkened S/MIME read/compose security-info and certificate-fetching windows.
+- Adapted current Epyrus #select-offline / #synchronizeTree to the Glowy dark surface.
+- Hardened generic toolkit alerts and the current Epyrus new-mail alert against light native/system backgrounds.
+- Added Linux/GTK and Windows native-control guards for the new security/offline targets.
+- Compose editor body remains intentionally deferred.
+
+
+0.1a13
+- Compose editor fix: redirect chrome://messenger/content/composerOverlay.css to a theme-provided override stylesheet.
+- Dark editor body (#070708) with light default text (#e6e6e8).
+- Preserves Epyrus' original composerOverlay.css table-border rules.
+- Presentation-only nsIEditorStyleSheets override; no CSS is inserted into outgoing message HTML.
+
+
+0.1a14
+------
+- Removed the ineffective composerOverlay.css chrome override from 0.1a13.
+- Moved the dark compose-canvas rules into chrome://messenger/skin/messageQuotes.css.
+- Epyrus itself injects that skin URI into the live editor via nsIEditorStyleSheets.addOverrideStyleSheet().
+- Canvas rules are restricted with @-moz-document url-prefix("about:blank") so normal message display is not recoloured.
+- The dark canvas remains presentation-only and is not inserted into outgoing message markup.
+
+
+0.1a15
+------
+- Fixed Compose Format Toolbar sprite overflow caused by Epyrus' AbsoluteFontSizeButton,
+  which did not exist in the original GlowySilver donor theme.
+- Added an explicit 16x16 image region for normal/disabled states so the full 304x48
+  legacy format-buttons.png sprite can no longer render as a composite toolbar image.
+
+
+0.1a16
+------
+- Rebased messageQuotes.css behavior on the current Epyrus version, including the Outlook line-height workaround and current signature opacity handling.
+- Kept the dark Compose canvas scoped to about:blank and therefore presentation-only.
+- Added Compose-only readable colours for quote containers, signatures, links and text selection.
+- Explicit author colours inside quoted HTML are intentionally not overwritten.
+
+
+0.1a18
+- Restored the genuine donor marble assets rather than generic texture fallbacks.
+- Folder pane uses bg-gen.png directly on #folderTree > treechildren and #folderPaneBox.
+- Add-ons Manager #categories again uses toolbar/sidebar-bg.png exactly like original GlowySilver Thunder.
+- Category rows remain transparent so the sidebar marble is visible through them.
+
+
+0.1a19
+------
+- Unified the main Preferences pane icons into a cool metallic GlowySilver palette.
+- Restored the missing Privacy pane icon using the current Epyrus privacy artwork as the semantic base.
+- Added a matching silver Calendar/Lightning Preferences icon and explicitly mapped paneLightning to it.
+- Preference icon artwork remains 32x32 with transparent backgrounds and current Epyrus pane IDs.
+- Privacy and Calendar semantic source artwork derives from Epyrus default-theme assets (MPL 2.0).
+
+
+0.1a20
+- Add-ons Manager: active theme row is now visually distinct from installed inactive themes.
+- Active theme uses a lighter row background and a slightly brighter hover state.
+- Inactive themes and non-theme add-ons remain unchanged.
+
+
+0.1a21
+- Added missing Conversation toolbar icon for Epyrus main toolbar.
+- Implemented as a separate Glowy-style white icon to match the existing main toolbar set.
+- Added large, small, hover and disabled states.
+
+
+0.1a22
+- Refined Conversation toolbar icon.
+- Replaced the pure white variant with a cooler silver tone closer to the Preferences icon set.
+- Made the two speech-bubble outlines thinner in both large and small toolbar sizes.
+
+
+0.1a23
+- Windows-only fix for invisible minimize/maximize/close controls with the menu bar hidden.
+- Added Epyrus-compatible caption-buttons.svg artwork to the messenger skin.
+- Applied caption controls only in the chromemargin/titlebar state used when the menubar is hidden.
+- Linux remains unchanged.
+
+
+0.1a24
+- Windows: when the permanent menubar is visible, collapse the App Menu titlebar placeholders.
+- Removes the matching empty strip from both the menubar row and the tabs row.
+- Linux remains unchanged.
+
+
+0.1a25
+- App Menu: widened and re-spaced submenu arrow cells (.menu-right).
+- Prevents the splitmenu separator from visually crossing the submenu arrows.
+- Affects both Linux and Windows.
+
+
+0.1a27
+- Windows-only correction for App Menu/titlebar mode.
+- Targets the exact tabs-toolbar App Menu placeholder by ID.
+- Hides that placeholder completely while leaving the real App Menu button intact.
+- Built from the last good 0.1a25 baseline; the previous 0.1a26 experiments are not included.
+
+
+0.1a28 CLEANUP
+---------------
+- Cleanup-only build based on the working 0.1a27 tree; no visual changes intended.
+- Corrected stale install.rdf description (it still described Alpha 19).
+- Normalized version-specific comments in the Epyrus compatibility layers.
+- Verified that failed Compose overlay/EditorContent experiments are no longer present.
+- Preserved separate Linux and Windows platform layers and all working UI fixes.
+- 0.1a26 remains intentionally skipped/abandoned and is not part of this baseline.

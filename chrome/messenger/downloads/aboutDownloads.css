@@ -1,0 +1,68 @@
+/* GlowySilver Epyrus 0.1a11
+ * Epyrus 2.2.1 about:downloads dark adaptation.
+ * Structure follows Epyrus mail/themes/*/mail/downloads/aboutDownloads.css.
+ */
+
+#aboutDownloads {
+  color: #d6d6da !important;
+  background: #000 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  padding: 18px;
+}
+
+#msgDownloadsListEmptyDescription {
+  margin: 1em;
+  text-align: center;
+  color: #9d9da3 !important;
+}
+
+#msgDownloadsRichListBox {
+  appearance: none !important;
+  margin: 0;
+  color: #d6d6da !important;
+  background: #050505 url("chrome://global/skin/bg-gen.png") repeat left top !important;
+  border: 1px solid #55555a !important;
+}
+
+#msgDownloadsRichListBox > richlistitem.download {
+  height: 5em;
+  padding: 5px 8px;
+  color: #d6d6da !important;
+  background-color: rgba(0,0,0,.35) !important;
+  border-bottom: 1px solid #4d4d52 !important;
+}
+
+#msgDownloadsRichListBox > richlistitem.download[selected="true"] {
+  color: #ffffff !important;
+  background: #4a4a4f url("chrome://global/skin/url-hover.png") repeat left top !important;
+}
+
+#clearDownloads {
+  margin-inline-start: 0;
+}
+
+#searchBox {
+  margin-inline-end: 0;
+  color: #e6e6e8 !important;
+  background-color: #070708 !important;
+  border-color: #69696e !important;
+}
+
+.fileTypeIcon {
+  margin-inline-end: 8px;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.fileName {
+  margin-bottom: 3px;
+  cursor: inherit;
+  color: #e6e6e8 !important;
+}
+
+.size,
+.startDate {
+  opacity: .75;
+  font-size: 95%;
+  cursor: inherit;
+  color: #aaaab0 !important;
+}

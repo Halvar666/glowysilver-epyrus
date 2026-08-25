@@ -1,0 +1,222 @@
+/* GlowySilver Epyrus -- Windows layer.
+ * Windows-specific corrections only. Shared Glowy appearance lives elsewhere.
+ */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* Prevent Windows system colours from introducing light edit/list surfaces. */
+textbox,
+menulist,
+listbox,
+tree,
+richlistbox,
+#qfb-qs-textbox,
+#searchInput {
+  color: #c6c6ca;
+}
+
+html|input,
+html|textarea {
+  color: #e6e6e8;
+  background-color: #080808;
+}
+
+#mail-toolbox,
+#navigation-toolbox,
+#compose-toolbox,
+#tabs-toolbar {
+  color: #c6c6ca;
+}
+
+/* Windows default focus colours are too dark against Glowy's black tree. */
+#folderTree > treechildren::-moz-tree-row(selected, focus),
+#threadTree > treechildren::-moz-tree-row(selected, focus) {
+  background-color: #5b5b60;
+}
+
+
+/* Secondary UI -- Windows */
+#MailPreferences,
+#accounttree,
+#archiveTree,
+#dirTree,
+#abResultsTree,
+#handlersView,
+#categories {
+  color: #c6c6ca;
+}
+
+#MailPreferences textbox,
+#MailPreferences menulist,
+#accounttree textbox,
+#CardViewBox textbox {
+  color: #e6e6e8;
+}
+
+/* Keep Windows native controls from reintroducing white client areas. */
+#archiveTree, #dirTree, #abResultsTree, #handlersView, #categories {
+  -moz-appearance: none;
+}
+
+/* Calendar / Lightning -- Windows */
+#calendarContent,
+#ltnSidebar,
+#today-pane-panel,
+#agenda-listbox,
+#calendar-task-tree,
+#unifinder-search-results-tree,
+minimonth {
+  -moz-appearance: none;
+  appearance: none;
+  color: #d6d6da;
+}
+
+#calendarContent textbox,
+#calendarContent menulist,
+#today-pane-panel textbox,
+#today-pane-panel menulist {
+  -moz-appearance: none;
+  color: #e6e6e8;
+  background-color: #070708;
+}
+
+
+/* Security / offline -- Windows */
+#certmanager tree,
+#certDetails tree,
+#devicemanager tree,
+#synchronizeTree,
+#select-offline tree {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  color: #d6d6da;
+  background-color: #050505;
+}
+
+#certmanager textbox,
+#certDetails textbox,
+#devicemanager textbox,
+#exceptiondialog textbox {
+  -moz-appearance: none !important;
+  color: #e6e6e8;
+  background-color: #070708;
+}
+
+/* Windows caption buttons when the menu bar is hidden.
+ * Epyrus switches to a chromemargin/titlebar layout in this state and the
+ * current Windows theme expects XUL caption-button artwork. Old GlowySilver
+ * predates this mechanism, so without these rules the controls are invisible.
+ */
+#messengerWindow[chromemargin] #titlebar-buttonbox-container,
+#messengerWindow[chromemargin] #titlebar-buttonbox {
+  visibility: visible !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-buttonbox {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  position: relative;
+  z-index: 10;
+}
+
+#messengerWindow[chromemargin] .titlebar-button {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  margin: 0 !important;
+  padding: 7px 15px !important;
+  border: 0 !important;
+  background: transparent !important;
+  min-width: 42px;
+  min-height: 28px;
+}
+
+#messengerWindow[chromemargin] .titlebar-button > .toolbarbutton-icon {
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-min {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#minimize") !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-max {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#maximize") !important;
+}
+
+#messengerWindow[chromemargin][sizemode="maximized"] #titlebar-max {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#restore") !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-close {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#close") !important;
+}
+
+#messengerWindow[chromemargin] .titlebar-button:not(#titlebar-close):hover {
+  background-color: rgba(255,255,255,.14) !important;
+}
+
+#messengerWindow[chromemargin] .titlebar-button:not(#titlebar-close):hover:active {
+  background-color: rgba(255,255,255,.24) !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-close:hover {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#close-highlight") !important;
+  background-color: rgb(196,43,28) !important;
+}
+
+#messengerWindow[chromemargin] #titlebar-close:hover:active {
+  background-color: rgb(150,35,25) !important;
+}
+
+#messengerWindow[chromemargin]:-moz-window-inactive #titlebar-min {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#minimize-inactive") !important;
+}
+#messengerWindow[chromemargin]:-moz-window-inactive #titlebar-max {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#maximize-inactive") !important;
+}
+#messengerWindow[chromemargin][sizemode="maximized"]:-moz-window-inactive #titlebar-max {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#restore-inactive") !important;
+}
+#messengerWindow[chromemargin]:-moz-window-inactive #titlebar-close {
+  list-style-image: url("chrome://messenger/skin/icons/caption-buttons.svg#close-inactive") !important;
+}
+
+
+/* Collapse obsolete App Menu reservation when the menubar is visible.
+ * On Windows Epyrus places an appmenu titlebar placeholder at ordinal 0 in
+ * both the menubar and the tabs toolbar.  With the permanent menubar enabled
+ * the window has no chromemargin, so these placeholders must not reserve width.
+ */
+#messengerWindow:not([chromemargin]) .titlebar-placeholder[type="appmenu-button"],
+#messengerWindow:not([chromemargin]) #appmenu-button-container {
+  visibility: collapse !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+
+/* Windows App Menu/titlebar mode.
+ * Epyrus persists the width of the App Menu placeholder on the tabs toolbar.
+ * Hide that exact placeholder instead of the generic titlebar placeholder,
+ * so the tab strip starts at the left edge while the real App Menu button
+ * remains in the titlebar above it.
+ */
+#messengerWindow[chromemargin] #tabs-toolbar >
+#titlebar-placeholder-on-TabsToolbar-for-appmenu-button,
+#messengerWindow[chromemargin] #tabs-toolbar >
+.titlebar-placeholder[type="appmenu-button"] {
+  display: none !important;
+  visibility: collapse !important;
+  -moz-box-flex: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}

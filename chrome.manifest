@@ -1,0 +1,14 @@
+# Toolkit
+skin  global              glowysilver-epyrus  chrome/global/
+skin  mozapps             glowysilver-epyrus  chrome/mozapps/
+
+# Epyrus application packages
+skin  communicator        glowysilver-epyrus  chrome/communicator/
+skin  editor              glowysilver-epyrus  chrome/editor/
+skin  messenger           glowysilver-epyrus  chrome/messenger/
+skin  messenger-newsblog  glowysilver-epyrus  chrome/messenger-newsblog/
+
+# OS-specific compatibility layer. Fallback is Windows for unknown platforms.
+skin  os_target           glowysilver-epyrus  chrome/os_target/windows/
+skin  os_target           glowysilver-epyrus  chrome/os_target/windows/  os=WINNT
+skin  os_target           glowysilver-epyrus  chrome/os_target/linux/    os=Linux

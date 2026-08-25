@@ -1,0 +1,103 @@
+/* GlowySilver Epyrus -- Linux/GTK layer.
+ * Linux-specific corrections only. Shared Glowy appearance lives elsewhere.
+ */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* GTK native widgets may otherwise paint light backgrounds over the skin. */
+textbox,
+menulist,
+listbox,
+tree,
+richlistbox,
+#qfb-qs-textbox,
+#searchInput {
+  color: #c6c6ca;
+}
+
+html|input,
+html|textarea {
+  color: #e6e6e8;
+  background-color: #080808;
+}
+
+#mail-toolbox,
+#navigation-toolbox,
+#compose-toolbox,
+#tabs-toolbar {
+  color: #c6c6ca;
+}
+
+/* Keep GTK focus/selection legible on the dark tree surfaces. */
+#folderTree > treechildren::-moz-tree-row(selected, focus),
+#threadTree > treechildren::-moz-tree-row(selected, focus) {
+  background-color: #5b5b60;
+}
+
+
+/* Secondary UI -- Linux */
+#MailPreferences,
+#accounttree,
+#archiveTree,
+#dirTree,
+#abResultsTree,
+#handlersView,
+#categories {
+  color: #c6c6ca;
+}
+
+#MailPreferences textbox,
+#MailPreferences menulist,
+#accounttree textbox,
+#CardViewBox textbox {
+  color: #e6e6e8;
+}
+
+/* Suppress GTK native light painting in secondary Epyrus windows. */
+#archiveTree, #dirTree, #abResultsTree, #handlersView, #categories {
+  -moz-appearance: none;
+}
+
+/* Calendar / Lightning -- Linux GTK */
+#calendarContent,
+#ltnSidebar,
+#today-pane-panel,
+#agenda-listbox,
+#calendar-task-tree,
+#unifinder-search-results-tree,
+minimonth {
+  -moz-appearance: none;
+  appearance: none;
+  color: #d6d6da;
+}
+
+#calendarContent textbox,
+#calendarContent menulist,
+#today-pane-panel textbox,
+#today-pane-panel menulist {
+  -moz-appearance: none;
+  color: #e6e6e8;
+  background-color: #070708;
+}
+
+
+/* Security / offline -- Linux GTK */
+#certmanager tree,
+#certDetails tree,
+#devicemanager tree,
+#synchronizeTree,
+#select-offline tree {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  color: #d6d6da;
+  background-color: #050505;
+}
+
+#certmanager textbox,
+#certDetails textbox,
+#devicemanager textbox,
+#exceptiondialog textbox {
+  -moz-appearance: none !important;
+  color: #e6e6e8;
+  background-color: #070708;
+}

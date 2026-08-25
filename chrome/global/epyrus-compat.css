@@ -1,0 +1,72 @@
+/* GlowySilver Epyrus -- shared Epyrus compatibility layer. */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* Newer textbox internals used by the Epyrus/Thunderbird-52 generation. */
+html|input,
+html|textarea,
+html|*.textbox-input,
+html|*.textbox-textarea {
+  color: #c6c6ca;
+}
+
+/* Common in-content / rich list surfaces should not fall back to white. */
+richlistbox,
+listbox,
+tree {
+  color: #c6c6ca;
+}
+
+/* Current notification bars are deliberately dark rather than GTK/Windows native light. */
+notification,
+notificationbox {
+  color: #e6e6e8;
+}
+
+/* Quick Filter Bar and newer search controls. */
+#quick-filter-bar,
+#quick-filter-bar-main-bar {
+  color: #c6c6ca;
+}
+
+#qfb-qs-textbox,
+#searchInput {
+  color: #c6c6ca;
+  background-color: #000000;
+}
+
+/* Epyrus/TB52 notification bars. */
+notification,
+notificationbox,
+notification[value="remoteContent"],
+notification[value="phishingContent"],
+notification[value="junkContent"] {
+  color: #e6e6e8;
+  background: #18181a url("chrome://global/skin/bg-main.png") repeat left top;
+  border-color: #5d5d62;
+}
+
+notification button,
+notification toolbarbutton {
+  color: #e6e6e8;
+}
+
+/* Epyrus 2.x menubar geometry fix.
+ * The original TB11 GlowySilver active menu rule adds 3px top padding and
+ * changes border widths.  Epyrus allows that to resize the menubar, which
+ * shifts the complete window content on hover.  Keep the box dimensions
+ * invariant and draw the pressed/hover bevel with an inset shadow instead. */
+menubar > menu,
+menubar > menu:hover,
+menubar > menu[_moz-menuactive="true"]:not([disabled="true"]) {
+  padding: 0 !important;
+  border: 2px solid transparent !important;
+}
+
+menubar > menu[_moz-menuactive="true"]:not([disabled="true"]) {
+  background: none !important;
+  box-shadow:
+    inset 1px 0 #555555,
+    inset -1px 0 #bbbbbb,
+    inset 0 -1px #bbbbbb;
+}
