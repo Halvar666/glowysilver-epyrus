@@ -977,9 +977,9 @@ autocomplete-richlistbox,
   border-color: #5d5d62;
 }
 
-/* Editor frame chrome. The HTML document inside is darkened by the
- * EditorContent.css override; keeping this frame dark avoids a white flash
- * while the editor is being initialised. */
+/* Editor frame chrome. The HTML document inside is darkened through
+ * messageQuotes.css, which Epyrus registers as a display-only editor override;
+ * keeping this frame dark avoids a white flash while the editor initializes. */
 #content-frame {
   appearance: none;
   color: #e6e6e8;
@@ -998,12 +998,4 @@ autocomplete-richlistbox,
 #msgcomposeWindow menulist[disabled="true"],
 #msgcomposeWindow toolbarbutton[disabled="true"] {
   color: #78787e;
-}
-
-/* ===== GlowySilver 0.1a6 compose editor hook ========================== */
-/* Epyrus complete themes cannot rely on extension-style XUL overlays for
- * this job. Attach a tiny XBL constructor to a plain compose container and
- * let it register the display-only editor stylesheet once the editor exists. */
-#composeContentBox {
-  
 }

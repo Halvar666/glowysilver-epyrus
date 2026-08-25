@@ -39,4 +39,4 @@ The GlowySilver-derived theme is distributed under the **GNU General Public Lice
 
 Selected files derived from Epyrus/Mozilla sources remain subject to their original **Mozilla Public License 2.0** terms where applicable.
 
-See [LICENSE](LICENSE), [LICENSE-MPL-2.0](LICENSE-MPL-2.0), and [CREDITS.md](CREDITS.md).
+See [LICENSE](LICENSE), [LICENSES/MPL-2.0.txt](LICENSES/MPL-2.0.txt), and [CREDITS.md](CREDITS.md).

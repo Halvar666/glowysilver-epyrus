@@ -20,7 +20,7 @@
     <em:description>Release candidate of the GlowySilver complete theme for Epyrus 2.x, adapted from GlowySilver Thunder by glowplug.</em:description>
     <em:creator>Halvar666</em:creator>
     <em:contributor>Original GlowySilver Thunder theme: glowplug</em:contributor>
-    <em:homepageURL>https://addons.thunderbird.net/en-US/thunderbird/addon/glowysilver-thunder/</em:homepageURL>
+    <em:homepageURL>https://github.com/Halvar666/glowysilver-epyrus</em:homepageURL>
     <em:license>GNU GPL v3.0; selected Epyrus-derived files remain MPL 2.0</em:license>
   </Description>
 </RDF>
