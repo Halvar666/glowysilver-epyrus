@@ -22,11 +22,16 @@ GNU GPL v3.0. The complete GPL v3.0 text is provided in LICENSE.
 
 Epyrus-derived material
 -----------------------
+Epyrus is developed and maintained by athenian200.
+
+Primary repository:
+https://repo.palemoon.org/athenian200/epyrus
+
+GitHub mirror:
+https://github.com/FranklinDM/Epyrus
+
 Selected compatibility code and artwork are derived from the Epyrus default
 theme and retain Mozilla Public License 2.0 terms. This includes, in
 particular, semantic source artwork used for the Privacy and Calendar
 Preferences icons and the Windows caption-buttons.svg compatibility asset.
 The complete MPL 2.0 text is provided in LICENSES/MPL-2.0.txt.
-
-Epyrus project:
-https://github.com/FranklinDM/Epyrus

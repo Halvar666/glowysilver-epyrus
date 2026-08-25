@@ -1,6 +1,6 @@
 # GlowySilver Epyrus
 
-A dark complete theme for [Epyrus](https://github.com/FranklinDM/Epyrus), based on the classic **GlowySilver Thunder** theme by glowplug.
+A dark complete theme for [Epyrus](https://repo.palemoon.org/athenian200/epyrus), based on the classic **GlowySilver Thunder** theme by glowplug.
 
 GlowySilver Epyrus preserves the original dark silver/black textured appearance while adapting the theme to current Epyrus UI, selectors, dialogs, calendar integration, compose editor, and Windows/Linux platform differences.
 
@@ -28,6 +28,12 @@ GlowySilver Epyrus is based on **GlowySilver Thunder 8.0.06** by **glowplug**.
 Original theme page:
 
 https://addons.thunderbird.net/en-US/thunderbird/addon/glowysilver-thunder/
+
+**Epyrus** is developed and maintained by **athenian200**.
+
+Primary Epyrus repository:
+
+https://repo.palemoon.org/athenian200/epyrus
 
 Additional compatibility work uses selected material adapted from the Epyrus default theme.
 
